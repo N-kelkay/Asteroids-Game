@@ -14,6 +14,11 @@ class Asteroids extends Game {
 	static int counter = 0;
 	private int FPS = 30;
 
+	private Point[] shape;   // An array of points.
+	public Point position;   // The offset mentioned above.
+	public double rotation; // Zero degrees is due east.
+	Ship ship = new Ship(shape,position,rotation);
+
 	public Asteroids() {
 		super("Asteroids!",800,600);
 		this.setFocusable(true);
