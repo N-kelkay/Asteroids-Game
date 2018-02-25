@@ -12,6 +12,7 @@ import java.awt.event.*;
 
 class Asteroids extends Game {
 	static int counter = 0;
+	private int FPS = 30;
 
 	public Asteroids() {
 		super("Asteroids!",800,600);
