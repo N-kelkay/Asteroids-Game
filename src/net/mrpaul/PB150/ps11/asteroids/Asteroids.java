@@ -14,7 +14,7 @@ class Asteroids extends Game {
 	static int counter = 0;
 	private int FPS = 30;
 
-	private Point[] shape = {new Point(0,0), new Point(10,0), new Point(10,10), new Point(0, 10)};   // An array of points.
+	private Point[] shape = {new Point(400,300), new Point(390,310), new Point(420,300), new Point(390, 290)};   // An array of points.
 	public Point position = new Point(400, 300);   // The offset mentioned above.
 	public double rotation  = 0; // Zero degrees is due east.
 	Ship ship = new Ship(shape,position,rotation);
@@ -28,7 +28,7 @@ class Asteroids extends Game {
 	public void paint(Graphics brush) {
 		brush.setColor(Color.black);
 		brush.fillRect(0,0,width,height);
-		//ship.paint(brush);
+		ship.paint(brush);
 
 		// sample code for printing message for debugging
 		// counter is incremented and this message printed
