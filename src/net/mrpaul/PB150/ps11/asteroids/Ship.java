@@ -17,11 +17,36 @@ public class Ship extends Polygon{
 		Point[] shape = super.getPoints();
 		int[] x = new int[shape.length];
 		int[] y = new int[shape.length];
-		Point pos;
+
+
+		brush.setColor(Color.gray);
 
 		for(int i = 0; i <shape.length; i++){
-			x[i] = pos.getX();
-			y[i] = pos.getY();
+			Point pos = shape[i];
+
+			x[i] = (int)pos.getX();
+			y[i] = (int)pos.getY();
 		}
+		brush.drawPolygon(x,y,4);
+	}
+
+	//Moves the ship
+	public void move(){
+	boolean forward = true;
+	boolean leftTurn =false;
+	boolean rightTurn = false;
+
+	if(forward == true){
+		Point position1 = super.position;
+
+		double changeX = position1.getX();
+		changeX += 10;
+		position1.setX(changeX);
+
+		if(position1.getX() > 800){
+			position1.setX(0);
+		}
+	}
+
 	}
 }

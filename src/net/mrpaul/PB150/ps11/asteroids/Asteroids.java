@@ -10,11 +10,14 @@ NOTE: This class is the metaphorical "main method" of your program,
 import java.awt.*;
 import java.awt.event.*;
 
-class Asteroids extends Game {
+class Asteroids extends Game implements KeyListener{
 	static int counter = 0;
 	private int FPS = 30;
+	boolean doneConstructing =false;
 
-	private Point[] shape = {new Point(400,300), new Point(390,310), new Point(420,300), new Point(390, 290)};   // An array of points.
+	//private Point[] shape = {new Point(400,300), new Point(390,310), new Point(420,300), new Point(390, 290)};   // An array of points.
+	private Point[] shape = {new Point(400, 300), new Point(390,310), new Point(420,300), new Point(390, 290)};   // An array of points.
+
 	public Point position = new Point(400, 300);   // The offset mentioned above.
 	public double rotation  = 0; // Zero degrees is due east.
 	Ship ship = new Ship(shape,position,rotation);
@@ -23,23 +26,45 @@ class Asteroids extends Game {
 		super("Asteroids!",800,600);
 		this.setFocusable(true);
 		this.requestFocus();
+
+		doneConstructing = true;
 	}
 
 	public void paint(Graphics brush) {
-		brush.setColor(Color.black);
-		brush.fillRect(0,0,width,height);
-		ship.paint(brush);
 
-		// sample code for printing message for debugging
-		// counter is incremented and this message printed
-		// each time the canvas is repainted
-		counter++;
-		brush.setColor(Color.white);
-		brush.drawString("Counter is " + counter,10,10);
+		if(doneConstructing == true) {
+			brush.setColor(Color.black);
+			brush.fillRect(0, 0, width, height);
+			ship.move();
+			ship.paint(brush);
+
+			// sample code for printing message for debugging
+			// counter is incremented and this message printed
+			// each time the canvas is repainted
+			counter++;
+			brush.setColor(Color.white);
+			brush.drawString("Counter is " + counter, 10, 10);
+		}
 	}
 
 	public static void main (String[] args) {
 		Asteroids a = new Asteroids();
 		a.repaint();
+	}
+
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+
 	}
 }
