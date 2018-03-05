@@ -26,6 +26,7 @@ class Asteroids extends Game implements KeyListener{
 		super("Asteroids!",800,600);
 		this.setFocusable(true);
 		this.requestFocus();
+		this.addKeyListener(ship);
 
 		doneConstructing = true;
 	}

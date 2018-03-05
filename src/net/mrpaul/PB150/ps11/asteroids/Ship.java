@@ -1,9 +1,17 @@
 package net.mrpaul.PB150.ps11.asteroids;
 
 
-import java.awt.*;
+import javafx.scene.input.KeyCode;
 
-public class Ship extends Polygon{
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+public class Ship extends Polygon implements KeyListener{
+
+	boolean forward = false;
+	boolean leftTurn =false;
+	boolean rightTurn = false;
 
 	public Ship(Point[] inShape, Point inPosition, double inRotation) {
 		super(inShape, inPosition, inRotation);
@@ -32,9 +40,6 @@ public class Ship extends Polygon{
 
 	//Moves the ship
 	public void move(){
-	boolean forward = true;
-	boolean leftTurn =false;
-	boolean rightTurn = false;
 
 	if(forward == true){
 		Point position1 = super.position;
@@ -46,7 +51,51 @@ public class Ship extends Polygon{
 		if(position1.getX() > 800){
 			position1.setX(0);
 		}
+
 	}
 
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		if(e.getKeyCode() == KeyEvent.VK_UP){
+			forward = true;
+		}
+
+		if(e.getKeyCode() == KeyEvent.VK_DOWN){
+
+		}
+
+		if(e.getKeyCode() == KeyEvent.VK_LEFT){
+			leftTurn = true;
+		}
+
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT){
+			rightTurn = true;
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		if(e.getKeyCode() == KeyEvent.VK_UP){
+			forward = false;
+		}
+
+		if(e.getKeyCode() == KeyEvent.VK_DOWN){
+
+		}
+
+		if(e.getKeyCode() == KeyEvent.VK_LEFT){
+			leftTurn = false;
+		}
+
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT){
+			rightTurn = false;
+		}
 	}
 }
