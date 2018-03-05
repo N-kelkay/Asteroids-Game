@@ -10,7 +10,20 @@ public class Asteroid extends Polygon{
 
 	// Makes the Asteroids
 	public void paint(Graphics brush){
+		Point[] shape = super.getPoints();
+		int[] x = new int[shape.length];
+		int[] y = new int[shape.length];
 
+
+		brush.setColor(Color.WHITE);
+
+		for(int i = 0; i <shape.length; i++){
+			Point pos = shape[i];
+
+			x[i] = (int)pos.getX();
+			y[i] = (int)pos.getY();
+		}
+		brush.drawPolygon(x,y,10);
 	}
 
 	// Moves the Asteroids

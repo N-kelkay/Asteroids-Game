@@ -22,6 +22,12 @@ class Asteroids extends Game{
 	public double rotation  = 0; // Zero degrees is due east.
 	Ship ship = new Ship(shape,position,rotation);
 
+	//ASTEROIDS:
+	private Point[] shape2 = {new Point(0, 0), new Point(10,0), new Point(10,10), new Point(0, 10), new Point(0, 10), new Point(0, 10), new Point(0, 10), new Point(0, 10), new Point(0, 10), new Point(0, 10)};   // An array of points.
+	public Point position2 = new Point(400, 300);   // The offset mentioned above.
+	public double rotation2  = 0; // Zero degrees is due east.
+	Asteroid asteroids = new Asteroid(shape2,position2,rotation2);
+
 	public Asteroids() {
 		super("Asteroids!",800,600);
 		this.setFocusable(true);
@@ -36,8 +42,13 @@ class Asteroids extends Game{
 		if(doneConstructing == true) {
 			brush.setColor(Color.black);
 			brush.fillRect(0, 0, width, height);
+
+			//Ship
 			ship.move();
 			ship.paint(brush);
+
+			//Asteroids
+			asteroids.paint(brush);
 
 			// sample code for printing message for debugging
 			// counter is incremented and this message printed
