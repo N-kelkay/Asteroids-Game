@@ -10,7 +10,7 @@ NOTE: This class is the metaphorical "main method" of your program,
 import java.awt.*;
 import java.awt.event.*;
 
-class Asteroids extends Game implements KeyListener{
+class Asteroids extends Game{
 	static int counter = 0;
 	private int FPS = 30;
 	boolean doneConstructing =false;
@@ -51,21 +51,5 @@ class Asteroids extends Game implements KeyListener{
 	public static void main (String[] args) {
 		Asteroids a = new Asteroids();
 		a.repaint();
-	}
-
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-
-	}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-
 	}
 }

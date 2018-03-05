@@ -41,24 +41,40 @@ public class Ship extends Polygon implements KeyListener{
 	//Moves the ship
 	public void move(){
 
-	if(forward == true){
-		Point position1 = super.position;
-
-		double changeX = position1.getX();
-		changeX += 10;
-		position1.setX(changeX);
-
-		if(position1.getX() > 800){
-			position1.setX(0);
+		if (rightTurn == true){
+			super.rotate(7);
 		}
 
-	}
+		if(leftTurn == true){
+			super.rotate(-7);
+		}
 
-	}
+		if(forward == true){
+			Point position1 = super.position;
+			double changeX = position1.getX();
+			changeX += Math.cos(Math.toRadians(rotation));
+			position1.setX(changeX);
 
-	@Override
-	public void keyTyped(KeyEvent e) {
+			double changeY = position1.getY();
+			changeY +=  Math.sin(Math.toRadians(rotation));
+			position1.setY(changeY);
 
+			//x boundaries
+			if(position1.getX() > 800){
+				position1.setX(0);
+			}
+			if(position1.getX() < 0){
+				position1.setX(800);
+			}
+
+			//y boundaries
+			if(position1.getY() < 0){
+				position1.setY(600);
+			}
+			if(position1.getY() > 600){
+				position1.setY(0);
+			}
+		}
 	}
 
 	@Override
@@ -97,5 +113,9 @@ public class Ship extends Polygon implements KeyListener{
 		if(e.getKeyCode() == KeyEvent.VK_RIGHT){
 			rightTurn = false;
 		}
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
 	}
 }
