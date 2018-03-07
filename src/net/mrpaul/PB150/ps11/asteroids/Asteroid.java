@@ -15,7 +15,7 @@ public class Asteroid extends Polygon{
 		int[] y = new int[shape.length];
 
 
-		brush.setColor(Color.WHITE);
+		brush.setColor(Color.GRAY);
 
 		for(int i = 0; i <shape.length; i++){
 			Point pos = shape[i];
@@ -23,7 +23,7 @@ public class Asteroid extends Polygon{
 			x[i] = (int)pos.getX();
 			y[i] = (int)pos.getY();
 		}
-		brush.drawPolygon(x,y,10);
+		brush.drawPolygon(x,y,6);
 	}
 
 	// Moves the Asteroids

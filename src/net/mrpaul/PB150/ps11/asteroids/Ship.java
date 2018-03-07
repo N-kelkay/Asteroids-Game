@@ -52,11 +52,11 @@ public class Ship extends Polygon implements KeyListener{
 		if(forward == true){
 			Point position1 = super.position;
 			double changeX = position1.getX();
-			changeX += Math.cos(Math.toRadians(rotation));
+			changeX += 5 * Math.cos(Math.toRadians(rotation));
 			position1.setX(changeX);
 
 			double changeY = position1.getY();
-			changeY +=  Math.sin(Math.toRadians(rotation));
+			changeY +=  5 * Math.sin(Math.toRadians(rotation));
 			position1.setY(changeY);
 
 			//x boundaries
