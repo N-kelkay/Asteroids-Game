@@ -29,5 +29,71 @@ public class Asteroid extends Polygon{
 	// Moves the Asteroids
 	public void move(){
 
+		//To make ship rotate:
+		rotation = Math.random() * 20;
+
+		double direct = Math.random() * 6;
+
+		if(direct == 1) {
+
+			double changeX = super.position.getX() - 4;
+			super.position.setX(changeX);
+
+			double changeY = super.position.getY() - 4;
+			super.position.setY(changeY);
+		}
+
+		if(direct == 2) {
+
+			double changeX = super.position.getX() + 4;
+			super.position.setX(changeX);
+
+			double changeY = super.position.getY() + 4;
+			super.position.setY(changeY);
+		}
+
+		if(direct == 3) {
+
+			double changeX = super.position.getX() - 4;
+			super.position.setX(changeX);
+
+			double changeY = super.position.getY();
+			super.position.setY(changeY);
+		}
+
+		if(direct == 4) {
+
+			double changeX = super.position.getX() + 4;
+			super.position.setX(changeX);
+
+			double changeY = super.position.getY();
+			super.position.setY(changeY);
+		}
+
+		if(direct == 5) {
+
+			double changeX = super.position.getX() - 5;
+			super.position.setX(changeX);
+
+			double changeY = super.position.getY() - 5;
+			super.position.setY(changeY);
+		}
+
+
+		//x boundaries
+		if(super.position.getX() > 800){
+			super.position.setX(0);
+		}
+		if(super.position.getX() < 0){
+			super.position.setX(800);
+		}
+
+		//y boundaries
+		if(super.position.getY() < 0){
+			super.position.setY(600);
+		}
+		if(super.position.getY() > 600){
+			super.position.setY(0);
+		}
 	}
 }

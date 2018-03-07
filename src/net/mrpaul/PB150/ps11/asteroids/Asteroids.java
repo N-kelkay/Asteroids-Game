@@ -24,10 +24,25 @@ class Asteroids extends Game{
 
 	//ASTEROIDS:
 	private Point[] shape2 = {new Point(0, 0), new Point(50,0), new Point(60,10), new Point(50, 40), new Point(30, 20), new Point(15, 30)};   // An array of points.
-	public Point position2 = new Point(400, 300);   // The offset mentioned above.
 	public double rotation2  = 0; // Zero degrees is due east.
 	//Asteroid asteroids = new Asteroid(shape2,position2,rotation2);
 	Asteroid[] asteroids = new Asteroid[5];
+
+	private double difPositionX(){
+		double x = Math.random() * 775;
+		if (x < 25){
+			x = 25;
+		}
+		return x;
+	}
+
+	private double difPositionY(){
+		double y = Math.random() * 575;
+		if (y < 25){
+			y = 25;
+		}
+		return y;
+	}
 
 	public Asteroids() {
 		super("Asteroids!",800,600);
@@ -36,6 +51,8 @@ class Asteroids extends Game{
 		this.addKeyListener(ship);
 
 		for (int i  = 0; i < asteroids.length; i++){
+			Point position2 = new Point(difPositionX(), difPositionY());   // The offset mentioned above.
+
 			asteroids[i] = new Asteroid(shape2,position2,rotation2);
 		}
 
@@ -52,7 +69,12 @@ class Asteroids extends Game{
 			ship.move();
 			ship.paint(brush);
 
-			//Asteroids
+			//Asteroids move
+			for(int i = 0; i < asteroids.length; i++){
+
+				asteroids[i].move();
+			}
+			//Asteroids paint
 			for(int i = 0; i < asteroids.length; i++){
 				asteroids[i].paint(brush);
 			}
