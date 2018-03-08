@@ -34,15 +34,15 @@ public class Asteroid extends Polygon{
 
 		double direct = Math.random() * 6;
 
-		if(direct == 1) {
+		//if(direct == 1) {
 
 			double changeX = super.position.getX() - 4;
 			super.position.setX(changeX);
 
 			double changeY = super.position.getY() - 4;
 			super.position.setY(changeY);
-		}
-
+		//}
+/*
 		if(direct == 2) {
 
 			double changeX = super.position.getX() + 4;
@@ -78,7 +78,7 @@ public class Asteroid extends Polygon{
 			double changeY = super.position.getY() - 5;
 			super.position.setY(changeY);
 		}
-
+*/
 
 		//x boundaries
 		if(super.position.getX() > 800){
