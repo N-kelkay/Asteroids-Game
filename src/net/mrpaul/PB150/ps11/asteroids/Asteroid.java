@@ -29,56 +29,20 @@ public class Asteroid extends Polygon{
 	// Moves the Asteroids
 	public void move(){
 
-		//To make ship rotate:
-		rotation = Math.random() * 20;
+			int randomXY = (int)Math.random() * 5;
+			//System.out.println(randomXY);
+			int randomXY2 = (int)Math.random() * -5;
+			//System.out.print(randomXY2);
+			//Move the Asteroids:
 
-		double direct = Math.random() * 6;
-
-		//if(direct == 1) {
-
-			double changeX = super.position.getX() - 4;
+			double changeX = super.position.getX() + 3;
+		    changeX += Math.cos(Math.toRadians(rotation));
 			super.position.setX(changeX);
 
-			double changeY = super.position.getY() - 4;
+			double changeY = super.position.getY() + 3;
+			changeY -= 3*Math.sin(Math.toRadians(rotation));
 			super.position.setY(changeY);
-		//}
-/*
-		if(direct == 2) {
 
-			double changeX = super.position.getX() + 4;
-			super.position.setX(changeX);
-
-			double changeY = super.position.getY() + 4;
-			super.position.setY(changeY);
-		}
-
-		if(direct == 3) {
-
-			double changeX = super.position.getX() - 4;
-			super.position.setX(changeX);
-
-			double changeY = super.position.getY();
-			super.position.setY(changeY);
-		}
-
-		if(direct == 4) {
-
-			double changeX = super.position.getX() + 4;
-			super.position.setX(changeX);
-
-			double changeY = super.position.getY();
-			super.position.setY(changeY);
-		}
-
-		if(direct == 5) {
-
-			double changeX = super.position.getX() - 5;
-			super.position.setX(changeX);
-
-			double changeY = super.position.getY() - 5;
-			super.position.setY(changeY);
-		}
-*/
 
 		//x boundaries
 		if(super.position.getX() > 800){

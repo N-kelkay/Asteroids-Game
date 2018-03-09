@@ -24,7 +24,7 @@ class Asteroids extends Game{
 
 	//ASTEROIDS:
 	private Point[] shape2 = {new Point(0, 0), new Point(50,0), new Point(60,10), new Point(50, 40), new Point(30, 20), new Point(15, 30)};   // An array of points.
-	public double rotation2  = 0; // Zero degrees is due east.
+	//public double rotation2  = 360; // Zero degrees is due east.
 	//Asteroid asteroids = new Asteroid(shape2,position2,rotation2);
 	Asteroid[] asteroids = new Asteroid[5];
 
@@ -52,6 +52,7 @@ class Asteroids extends Game{
 
 		for (int i  = 0; i < asteroids.length; i++){
 			Point position2 = new Point(difPositionX(), difPositionY());   // The offset mentioned above.
+			double rotation2  = Math.random() * 361; // Zero degrees is due east.
 
 			asteroids[i] = new Asteroid(shape2,position2,rotation2);
 		}
