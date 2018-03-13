@@ -12,6 +12,7 @@ public class Ship extends Polygon implements KeyListener{
 	boolean forward = false;
 	boolean leftTurn =false;
 	boolean rightTurn = false;
+	final double GRAVITY = 0.94;
 
 	public Ship(Point[] inShape, Point inPosition, double inRotation) {
 		super(inShape, inPosition, inRotation);
@@ -58,6 +59,17 @@ public class Ship extends Polygon implements KeyListener{
 			double changeY = position1.getY();
 			changeY +=  5 * Math.sin(Math.toRadians(rotation));
 			position1.setY(changeY);
+
+			/*
+			if(position1.getX() == position1.getX()){
+				changeX *= GRAVITY;
+				position1.setX(changeX);
+			}
+			if(position1.getY() == position1.getY()){
+				changeY *= GRAVITY;
+				position1.setY(changeY);
+			}
+			*/
 
 			//x boundaries
 			if(position1.getX() > 800){

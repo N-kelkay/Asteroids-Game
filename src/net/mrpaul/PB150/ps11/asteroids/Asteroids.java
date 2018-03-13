@@ -14,6 +14,8 @@ class Asteroids extends Game{
 	static int counter = 0;
 	private int FPS = 30;
 	boolean doneConstructing =false;
+	private boolean GameOver;
+	private int count;
 
 	//private Point[] shape = {new Point(400,300), new Point(390,310), new Point(420,300), new Point(390, 290)};   // An array of points.
 	private Point[] shape = {new Point(400, 300), new Point(390,310), new Point(420,300), new Point(390, 290)};   // An array of points.
@@ -27,22 +29,6 @@ class Asteroids extends Game{
 	//public double rotation2  = 360; // Zero degrees is due east.
 	//Asteroid asteroids = new Asteroid(shape2,position2,rotation2);
 	Asteroid[] asteroids = new Asteroid[5];
-
-	private double difPositionX(){
-		double x = Math.random() * 775;
-		if (x < 25){
-			x = 25;
-		}
-		return x;
-	}
-
-	private double difPositionY(){
-		double y = Math.random() * 575;
-		if (y < 25){
-			y = 25;
-		}
-		return y;
-	}
 
 	public Asteroids() {
 		super("Asteroids!",800,600);
@@ -58,6 +44,22 @@ class Asteroids extends Game{
 		}
 
 		doneConstructing = true;
+	}
+
+	private double difPositionX(){
+		double x = Math.random() * 775;
+		if (x < 25){
+			x = 25;
+		}
+		return x;
+	}
+
+	private double difPositionY(){
+		double y = Math.random() * 575;
+		if (y < 25){
+			y = 25;
+		}
+		return y;
 	}
 
 	public void paint(Graphics brush) {

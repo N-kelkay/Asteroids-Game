@@ -72,6 +72,13 @@ class Polygon {
 		return crossingNumber%2 == 1;
 	}
 
+	public boolean collides(Polygon other){
+	if(this.contains(other.position)){
+		return true;
+	}
+	return false;
+	}
+
 	public void rotate(int degrees) {rotation = (rotation+degrees)%360;}
 
   /*
