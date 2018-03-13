@@ -80,6 +80,10 @@ class Asteroids extends Game{
 			//Asteroids paint
 			for(int i = 0; i < asteroids.length; i++){
 				asteroids[i].paint(brush);
+
+				if(asteroids[i].collides(ship) == true){
+					doneConstructing = false;
+				}
 			}
 
 			// sample code for printing message for debugging
@@ -88,6 +92,10 @@ class Asteroids extends Game{
 			counter++;
 			brush.setColor(Color.white);
 			brush.drawString("Counter is " + counter, 10, 10);
+		}
+		else{
+			brush.setColor(Color.WHITE);
+			brush.drawString("Game Over", 400, 300);
 		}
 	}
 
